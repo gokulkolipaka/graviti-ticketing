@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graviti Pharmaceuticals - IT Support</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Section -->
+        <div class="card welcome-card">
+            <h1>Graviti Pharmaceuticals</h1>
+            <p>IT Support & Ticketing System</p>
+        </div>
+
+        <!-- QR Code and Quick Access -->
+        <div class="card">
+            <h2>Access IT Support</h2>
+            <div class="qr-section">
+                <div class="qr-code">
+                    <h3>Scan QR Code</h3>
+                    <canvas id="qrcode"></canvas>
+                    <p>Scan with your mobile device</p>
+                </div>
+                
+                <div class="quick-access">
+                    <h3>Quick Access</h3>
+                    <div class="access-buttons">
+                        <a href="/login" class="btn btn-primary">🎫 Create New Ticket</a>
+                        <a href="/login" class="btn btn-success">📊 View My Tickets</a>
+                        <a href="/login" class="btn btn-warning">👨‍💼 Admin Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="card">
+            <h3>How to Use</h3>
+            <ol>
+                <li><strong>Scan the QR code</strong> or click on "Create New Ticket" button</li>
+                <li><strong>Login</strong> with your Graviti credentials</li>
+                <li><strong>Fill out the ticket form</strong> with your issue details</li>
+                <li><strong>Submit</strong> and track your ticket progress</li>
+                <li><strong>Receive updates</strong> via email notifications</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Generate QR code
+        const currentUrl = window.location.origin + '/login';
+        const canvas = document.getElementById('qrcode');
+        
+        QRCode.toCanvas(canvas, currentUrl, {
+            width: 200,
+            height: 200,
+            colorDark: '#667eea',
+            colorLight: '#ffffff'
+        }, function (error) {
+            if (error) console.error(error);
+            console.log('QR code generated successfully!');
+        });
+    </script>
+</body>
+</html>
